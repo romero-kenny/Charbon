@@ -1,3 +1,64 @@
 <resources>
     <string name="app_name">Charbon</string>
+
+    <string-array name="stat_names">
+        <item>Strength</item>
+        <item>Dexterity</item>
+        <item>Constitution</item>
+        <item>Intelligence</item>
+        <item>Wisdom</item>
+        <item>Charisma</item>
+        <item>Initiative</item>
+        <item>Speed</item>
+        <item>Inspiration</item>
+        <item>Proficiency Bonus</item>
+        <item>Perception</item>
+        <item>Armor Class</item>
+        <item>Max Hit Points</item>
+    </string-array>
+
+    <string-array name="skill_names">
+        <item>Acrobatics</item>
+        <item>Animal Handling</item>
+        <item>Arcana</item>
+        <item>Athletics</item>
+        <item>Deception</item>
+        <item>History</item>
+        <item>Insight</item>
+        <item>Intimidation</item>
+        <item>Investigation</item>
+        <item>Medicine</item>
+        <item>Nature</item>
+        <item>Perception</item>
+        <item>Performance</item>
+        <item>Persuasion</item>
+        <item>Religion</item>
+        <item>Sleight of Hand</item>
+        <item>Stealth</item>
+        <item>Sleight Hand</item>
+        <item>Stealth</item>
+        <item>Survival</item>
+    </string-array>
+
+    <!-- TODO: better name for the character sheet general title/headers strings -->
+    <string-array name="character_sheet_titles">
+        <item>Equipment</item>
+        <item>Other Proficiencies and Languages</item>
+        <item>Features and Traits</item>
+        <item>Attacks and Spell-Casting</item>
+        <item>Character Name</item>
+        <item>Class and Level</item>
+        <item>Background</item>
+        <item>Race</item>
+        <item>Alignment</item>
+        <item>Extra/Miscellaneous</item>
+        <item>Stats</item>
+        <item>Skills</item>
+    </string-array>
+
+    <string-array name="ui_button">
+        <item>New</item>
+        <item>Delete</item>
+        <item>Edit</item>
+    </string-array>
 </resources>
