@@ -14,7 +14,7 @@ public class CharacterData {
         public Integer max = 0;
     }
 
-    Resources res;
+    private Resources res;
 
     HashMap<String, Integer> stats = new HashMap<String, Integer>();
     HashMap<String, Integer> skills = new HashMap<String, Integer>();
