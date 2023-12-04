@@ -7,6 +7,10 @@ import android.content.Context;
 
 public class CharacterData {
 
+    /**
+     * keeps track of character in caller's list
+     */
+    public int pos;
     public String character_name = "DEFAULT";
     public Integer armor_class = 0;
     public static class hit_points {
@@ -24,9 +28,10 @@ public class CharacterData {
     /**
     * Constructor, couldn't figure out how to get context without extending App
     * Compat or something else. Thus, just plugin `this` when invoking from main,
-    * or if a class extends AppCompat, this you can also plug that into it too.
+    * or if a class extends AppCompat.
      */
-    CharacterData(Context context) {
+    CharacterData(Context context, int position) {
+        pos = position;
         res = context.getResources();
         stat_init();
         skill_init();

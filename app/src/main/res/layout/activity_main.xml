@@ -21,6 +21,15 @@
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
         android:layout_marginTop="?attr/actionBarSize">
+
+        <Button
+            android:id="@+id/new_char_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_shape"
+            android:text="New Character"
+            style="@style/main_button_size"
+            />
     </FrameLayout>
 
 </RelativeLayout>
