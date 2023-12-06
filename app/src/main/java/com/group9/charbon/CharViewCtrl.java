@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 class CharViewCtrl extends AppCompatActivity {
 
-    private ArrayList<CharacterData> character_list = new ArrayList<>();
     private Resources res;
     private Context context;
 
@@ -113,9 +112,6 @@ class CharViewCtrl extends AppCompatActivity {
         add_frag_view.setText("Add Feat/Trait");
         add_frag_view.setId(7999);
         feat_view.addView(add_frag_view);
-    }
-
-    public void new_character() {
     }
 
 }

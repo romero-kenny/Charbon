@@ -6,6 +6,14 @@
     android:layout_height="match_parent" >
 
     <!-- we are going to update the stat and skill views in the program at launch instead. -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
     <GridLayout
         android:id="@+id/stat_view"
         android:layout_width="match_parent"
@@ -20,17 +28,21 @@
         app:layout_constraintTop_toBottomOf="@id/stat_view"
         />
 
-    <androidx.fragment.app.FragmentContainerView
+    <LinearLayout
         android:id="@+id/feat_trait_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/skill_view"
-        />
-    <androidx.fragment.app.FragmentContainerView
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/skill_view"> </LinearLayout>
+    <LinearLayout
         android:id="@+id/atck_spll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/feat_trait_view"
-        />
+        >
 
+    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

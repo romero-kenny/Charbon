@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button new_char_button;
     private String curr_char_name;
-    private HashMap<String, Integer> char_list = new HashMap<String, Integer>();
+    private HashMap<String, CharacterData> char_list = new HashMap<String, CharacterData>();
     private CharViewCtrl char_view;
     private int char_ind = 0; // keeps track of which character count we
     private Context context;
@@ -78,14 +78,17 @@ public class MainActivity extends AppCompatActivity {
         new_char_bttn.setTextAppearance(context, style.main_button_size);
         new_char_bttn.setId(char_ind);
         char_ind++;
-        char_list.put(char_name, new_char_bttn.getId());
 
-        // creating the button handler
+        // Creating new CharacterData for the button.
+        char_list.put(char_name, new CharacterData(context, char_name));
+
+        // creating the button handler, allowing for entering an existing character.
         new_char_bttn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString("char_name", char_name);
+                bundle.putString("char_name", new_char_bttn.getText().toString());
+                bundle.putParcelable("char_data", char_list.get(new_char_bttn.getText().toString()));
                 Intent intent = new Intent(context, CharSheet.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
@@ -114,8 +117,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 curr_char_name = user_input.getText().toString();
                 main_button_creator(curr_char_name);
-
-
             }
         });
 
