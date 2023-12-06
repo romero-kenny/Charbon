@@ -18,8 +18,8 @@ class CharViewCtrl extends AppCompatActivity {
     private Resources res;
     private Context context;
 
-    CharViewCtrl() {
-        context = this;
+    CharViewCtrl(Context cntxt, String char_name) {
+        context = cntxt;
         res = context.getResources();
         init_stat_view();
         init_skill_view();
