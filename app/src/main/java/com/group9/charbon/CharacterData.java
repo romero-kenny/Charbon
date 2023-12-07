@@ -1,6 +1,7 @@
 package com.group9.charbon;
 
 import java.util.HashMap;
+
 import android.content.res.Resources;
 import android.content.Context;
 import android.os.Parcel;
@@ -11,6 +12,7 @@ public class CharacterData implements Parcelable {
 
     public String character_name = "DEFAULT";
     public Integer armor_class = 0;
+
     public static class hit_points {
         public static Integer current = 0;
         public static Integer max = 0;
@@ -55,15 +57,16 @@ public class CharacterData implements Parcelable {
         public CharacterData createFromParcel(Parcel in) {
             return new CharacterData(in);
         }
+
         public CharacterData[] newArray(int size) {
             return new CharacterData[size];
         }
     };
 
     /**
-    * Constructor, couldn't figure out how to get context without extending App
-    * Compat or something else. Thus, just plugin `this` when invoking from main,
-    * or if a class extends AppCompat.
+     * Constructor, couldn't figure out how to get context without extending App
+     * Compat or something else. Thus, just plugin `this` when invoking from main,
+     * or if a class extends AppCompat.
      */
     CharacterData(Context context, String char_name) {
         character_name = char_name;
@@ -117,7 +120,6 @@ public class CharacterData implements Parcelable {
     public void update_attacks_and_spells(String attack_spell_name, String new_val) {
         attack_and_spells.replace(attack_spell_name, new_val);
     }
-
 
 
 }

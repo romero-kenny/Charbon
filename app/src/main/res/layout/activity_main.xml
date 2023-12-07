@@ -8,26 +8,24 @@
     <!-- Container for Fragments -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    <LinearLayout
-        android:orientation="vertical"
-        android:id="@+id/main_bttn_cont"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="5dp"
-        >
+        android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/new_char_button"
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/main_bttn_cont"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="20px"
-            android:background="@drawable/button_shape"
-            android:text="New Character"
-            style="@style/main_button_size"
-            />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_margin="5dp">
+
+            <Button
+                android:id="@+id/new_char_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20px"
+                android:background="@drawable/button_shape"
+                android:text="New Character"
+                style="@style/main_button_size" />
+        </LinearLayout>
     </ScrollView>
 </RelativeLayout>
 

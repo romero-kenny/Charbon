@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Button new_char_button;
     private String curr_char_name;
-    private HashMap<String, CharacterData> char_list = new HashMap<String, CharacterData>();
-    private CharViewCtrl char_view;
-    private int char_ind = 0; // keeps track of which character count we
+    private final HashMap<String, CharacterData> char_list = new HashMap<String, CharacterData>();
+    private int char_ind = 0; // keeps track of which character count
     private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * needed to factor this out, as a linear layout is needed for padding :/
+     *
      * @param char_name
      */
     private void main_button_creator(String char_name) {
@@ -91,13 +92,25 @@ public class MainActivity extends AppCompatActivity {
                 bundle.putParcelable("char_data", char_list.get(new_char_bttn.getText().toString()));
                 Intent intent = new Intent(context, CharSheet.class);
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivityForResult(intent, 0);
             }
         });
 
         // Adding the button to the container
         butt_cont.addView(new_char_bttn);
         linear_layout.addView(butt_cont);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 0 && resultCode == -1) {
+            Bundle bundle = data.getExtras();
+            String char_name = bundle.getString("char_name");
+            CharacterData char_data = bundle.getParcelable("char_data");
+            char_list.replace(char_data.character_name, char_data);
+        }
     }
 
 
@@ -123,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-               dialog.cancel();
+                dialog.cancel();
             }
         });
 
