@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Spanned;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
@@ -88,6 +90,23 @@ public class CharSheet extends AppCompatActivity {
             user_input.setText("" + char_data.skills.get(skill_list[row]));
             user_input.setGravity(Gravity.CENTER);
             user_input.setInputType(InputType.TYPE_CLASS_NUMBER);
+            InputFilter max_length = new InputFilter.LengthFilter(3);
+            user_input.setFilters(new InputFilter[]{max_length});
+
+            user_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    String text = user_input.getText().toString();
+
+                    if (text.length() > 1) {
+                        text = text.replaceFirst("^0+", "");
+                        user_input.setText(text);
+                    }
+
+                }
+            });
+
+
             user_input.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -103,12 +122,15 @@ public class CharSheet extends AppCompatActivity {
                 public void afterTextChanged(Editable s) {
                     int id = user_input.getId();
                     id -= 9000;
+                    String text = user_input.getText().toString().trim();
+                    if (text.equals("")) {
+                        text = "0";
+                    }
                     char_data.skills.replace(skill_list[id],
-                            Integer.parseInt(user_input.getText().toString().trim()));
+                            Integer.parseInt(text));
                 }
             });
             user_input.setId(9000 + row);
-
 
             // and adding to grid
             grid_row = GridLayout.spec(row);
@@ -151,11 +173,26 @@ public class CharSheet extends AppCompatActivity {
             user_input.setText("" + char_data.stats.get(stat_list[row]));
             user_input.setGravity(Gravity.CENTER);
             user_input.setInputType(InputType.TYPE_CLASS_NUMBER);
+            InputFilter max_length = new InputFilter.LengthFilter(3);
+            user_input.setFilters(new InputFilter[]{max_length});
+
+            // removing leading zeros
+            user_input.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    String text = user_input.getText().toString();
+
+                    if (text.length() > 1) {
+                        text = text.replaceFirst("^0+", "");
+                        user_input.setText(text);
+                    }
+                }
+            });
+
+            // adding edit text updated for data
             user_input.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    return;
-
                 }
 
                 @Override
@@ -168,8 +205,14 @@ public class CharSheet extends AppCompatActivity {
                 public void afterTextChanged(Editable s) {
                     int id = user_input.getId();
                     id -= 8000;
+
+                    String text = user_input.getText().toString().trim();
+                    if (text.equals("")) {
+                        text = "0";
+                    }
+
                     char_data.stats.replace(stat_list[id],
-                            Integer.parseInt(user_input.getText().toString().trim()));
+                            Integer.parseInt(text));
 
                 }
             });

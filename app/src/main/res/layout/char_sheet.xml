@@ -13,16 +13,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="10dp"
-            >
+            android:layout_margin="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="24dp"
-                android:text="Stats"
-                />
+                android:text="Stats" />
 
             <GridLayout
                 android:id="@+id/stat_view"
@@ -31,16 +29,14 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:background="@drawable/stat_skill_shape"
                 android:layout_margin="10dp"
-                android:padding="10dp"
-                />
+                android:padding="10dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="24dp"
-                android:text="Skills"
-                />
+                android:text="Skills" />
 
             <GridLayout
                 android:id="@+id/skill_view"
@@ -49,16 +45,14 @@
                 app:layout_constraintTop_toBottomOf="@id/stat_view"
                 android:background="@drawable/stat_skill_shape"
                 android:layout_margin="10dp"
-                android:padding="10dp"
-                />
+                android:padding="10dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="24dp"
-                android:text="Features and Traits"
-                />
+                android:text="Features and Traits" />
 
             <LinearLayout
                 android:id="@+id/feat_trait_view"
@@ -73,8 +67,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="24dp"
-                android:text="Attacks and Spells"
-                />
+                android:text="Attacks and Spells" />
 
             <LinearLayout
                 android:id="@+id/atck_spll_view"

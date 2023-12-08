@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Creating the layout for the indv. button
         LinearLayout butt_cont = new LinearLayout(context);
-        butt_cont.setOrientation(LinearLayout.VERTICAL);
+        butt_cont.setOrientation(LinearLayout.HORIZONTAL);
         LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
@@ -96,9 +96,37 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        new_char_bttn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Delete Character");
+                builder.setMessage("Are you sure you want to delete " + new_char_bttn.getText().toString() + "?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        char_list.remove(new_char_bttn.getText().toString());
+                        linear_layout.removeView(butt_cont);
+                        dialog.dismiss();
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                return true;
+            }
+        });
+
+
         // Adding the button to the container
         butt_cont.addView(new_char_bttn);
         linear_layout.addView(butt_cont);
+
     }
 
     @Override
